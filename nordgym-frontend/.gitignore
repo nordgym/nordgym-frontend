@@ -22,6 +22,12 @@ speed-measure-plugin*.json
 *.launch
 .settings/
 *.sublime-workspace
+.idea/workspace.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/nordgym-frontend.iml
+.idea/vcs.xml
 
 # IDE - VSCode
 .vscode/*

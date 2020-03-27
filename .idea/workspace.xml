@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f0c35431-dfc8-4400-a0c3-ed876b2d8be2" name="Default Changelist" comment="" />
+    <list default="true" id="f0c35431-dfc8-4400-a0c3-ed876b2d8be2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/.gitignore" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
