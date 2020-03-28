@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OrderManagementComponent } from './order-management/order-management.component';
+import { OrderManagementComponent } from './management/order-management/order-management.component';
 import { IndexComponent } from './index/index.component';
+import {UserManagementComponent} from './management/user-management/user-management.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
     redirectTo: 'index'
 },
   { path: 'index', component: IndexComponent},
-  { path: 'order', component: OrderManagementComponent }
+  { path: 'order', component: OrderManagementComponent },
+  { path: 'user', component: UserManagementComponent }
 
 ];
 

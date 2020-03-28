@@ -1,8 +1,8 @@
 export class Product {
     id: number;
-    name: String;
+    name: string;
     price: number;
 
-    constructor(){}
+    constructor() {}
 
 }

@@ -1,0 +1,42 @@
+.user-management-container {
+  margin: 2em 0 3em 0;
+  width: 100%;
+}
+
+.register-box {
+  margin-left: auto;
+  margin-right: auto;
+  width: 30em;
+}
+
+.register-box mat-form-field {
+  width: 100%;
+}
+
+.left-btn {
+  float: left;
+}
+
+.right-btn {
+  float: right;
+}
+
+.user-table-box {
+  margin-top: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.mat-elevation-z8 {
+  height: 400px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+.validation-alert {
+  color: red;
+  font-size: smaller;
+}
