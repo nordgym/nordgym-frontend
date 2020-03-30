@@ -3,13 +3,13 @@
     <form [formGroup]="userForm" (ngSubmit)="register(userForm.value)">
       <mat-form-field appearance="fill">
         <mat-label>Subscription number</mat-label>
-        <input matInput formControlName="subscriptionNumber" type="number" name="subscriptionNumber">
+        <input matInput formControlName="subscriptionNumber" name="subscriptionNumber">
         <div *ngIf="subscriptionNumber.invalid && (subscriptionNumber.dirty || subscriptionNumber.touched)">
           <div *ngIf="subscriptionNumber.errors.required">
             <span class="validation-alert">is required</span>
           </div>
           <div *ngIf="subscriptionNumber.errors.pattern">
-            <span class="validation-alert">must be 8 characters long and contains only digits</span>
+            <span class="validation-alert">must be exactly 10 characters long and contains only digits</span>
           </div>
         </div>
       </mat-form-field>
@@ -22,7 +22,7 @@
             <span class="validation-alert">is required</span>
           </div>
           <div *ngIf="firstName.errors.pattern">
-            <span class="validation-alert"> must be at least 2 characters long and contains only letters</span>
+            <span class="validation-alert"> must be minimum 2 maximum 15 characters long and contains only letters</span>
           </div>
         </div>
       </mat-form-field>
@@ -35,12 +35,12 @@
             <span class="validation-alert">is required</span>
           </div>
           <div *ngIf="lastName.errors.pattern">
-            <span class="validation-alert"> must be at least 2 characters long and contains only letters</span>
+            <span class="validation-alert"> must be minimum 2 maximum 15 characters long and contains only letters</span>
           </div>
         </div>
       </mat-form-field>
       <br>
-      <button mat-stroked-button class="left-btn" type="submit">Submit</button>
+      <button mat-stroked-button [disabled]="userForm.invalid" class="left-btn" type="submit">Submit</button>
       <button mat-stroked-button class="right-btn" type="reset">Reset</button>
     </form>
   </div>

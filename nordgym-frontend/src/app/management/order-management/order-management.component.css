@@ -1,0 +1,13 @@
+.order-management-container {
+  margin: 2em 0 3em 1em;
+  width: 100%;
+}
+
+.example-container {
+  height: 400px;
+  overflow: auto;
+}
+
+table {
+  width: 30%;
+}

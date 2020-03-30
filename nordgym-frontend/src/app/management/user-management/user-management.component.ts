@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, ViewChild} from '@angular/core';
 import {User} from '../../model/user';
 import {UserService} from '../../service/user.service';
 import {MatSort} from '@angular/material/sort';
@@ -9,7 +9,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'app-user-management',
   templateUrl: './user-management.component.html',
-  styleUrls: ['./user-management.component.css']
+  styleUrls: ['./user-management.component.css'],
 })
 
 export class UserManagementComponent implements OnInit {
@@ -28,7 +28,7 @@ export class UserManagementComponent implements OnInit {
     this.userForm = new FormGroup({
       subscriptionNumber: new FormControl(this.user.subscriptionNumber, [
         Validators.required,
-        Validators.pattern('^[0-9]{10}$')
+        Validators.pattern('^[\\d]{10}$')
       ]),
       firstName: new FormControl(this.user.firstName, [
         Validators.required,
@@ -65,5 +65,6 @@ export class UserManagementComponent implements OnInit {
 
   register(data) {
     this.userService.register(data).subscribe();
+    this.userForm.reset();
   }
 }
