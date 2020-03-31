@@ -1,0 +1,22 @@
+<div class="component-field">
+    <div class="input-form">
+        <form class="form" (ngSubmit)="onSubmit()" #userForm="ngForm">
+            <mat-form-field class="input-field" >
+                <mat-icon matPrefix>save_alt</mat-icon>
+                <mat-label>Product name</mat-label>
+                <input matInput placeholder="Coffee, Gloves or anything else" id="name" name="name" [(ngModel)]="product.name">
+            </mat-form-field>
+
+            <mat-form-field class="input-field">
+                <mat-icon matPrefix>money</mat-icon>
+                <mat-label>Price</mat-label>
+                <input matInput placeholder="Enter the price for a single product in BGN" id="price" name="price" [(ngModel)]="product.price">
+            </mat-form-field>
+
+            <div class="two-buttons">
+                <button type="submit" mat-raised-button color="primary">Submit</button>
+                <button mat-raised-button color="warn" type="reset" (mousedown)="goToProductList()">Cancel</button>    
+            </div>
+        </form>
+    </div>
+</div>

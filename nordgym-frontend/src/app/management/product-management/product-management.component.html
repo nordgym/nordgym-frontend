@@ -1,18 +1,36 @@
+<div>
+    <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+      </mat-form-field>
+    <button mat-raised-button color="accent" [routerLink]="['/new-product']" routerLinkActive="router-link-active" >New Product</button>
+</div>
+
 <div id="matTable">
-    <mat-table [dataSource]="products">
+    <mat-table [dataSource]="products" matSort>
         <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef>Product ID</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header="id">Product ID</mat-header-cell>
             <mat-cell *matCellDef="let product">{{product.id}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef>Product name</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header="name">Product name</mat-header-cell>
             <mat-cell *matCellDef="let product">{{product.name}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="price">
-            <mat-header-cell *matHeaderCellDef>Product price</mat-header-cell>
-            <mat-cell *matCellDef="let product">{{product.price}}</mat-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header="price">Product price</mat-header-cell>
+            <mat-cell *matCellDef="let product">BGN: {{product.price}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let product"><button mat-raised-button color="primary">Edit</button></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let product"><button mat-raised-button color="warn">Delete</button></mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>

@@ -23,6 +23,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ProductManagementComponent } from './management/product-management/product-management.component';
+import { NewProductFormComponent } from './new-product-form/new-product-form.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ProductManagementComponent } from './management/product-management/prod
     SideNavComponent,
     IndexComponent,
     UserManagementComponent,
-    ProductManagementComponent
+    ProductManagementComponent,
+    NewProductFormComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,7 @@ import { ProductManagementComponent } from './management/product-management/prod
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }
+
   ],
   bootstrap: [AppComponent]
 })

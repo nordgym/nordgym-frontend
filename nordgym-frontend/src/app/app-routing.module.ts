@@ -4,6 +4,7 @@ import { OrderManagementComponent } from './management/order-management/order-ma
 import { IndexComponent } from './index/index.component';
 import { UserManagementComponent } from './management/user-management/user-management.component';
 import { ProductManagementComponent } from './management/product-management/product-management.component';
+import { NewProductFormComponent } from './new-product-form/new-product-form.component';
 
 
 const routes: Routes = [
@@ -15,8 +16,8 @@ const routes: Routes = [
   { path: 'index', component: IndexComponent },
   { path: 'order', component: OrderManagementComponent },
   { path: 'user', component: UserManagementComponent },
-  { path: 'product/all', component: ProductManagementComponent }
-
+  { path: 'product/all', component: ProductManagementComponent },
+  { path: 'new-product', component: NewProductFormComponent }
 ];
 
 @NgModule({
