@@ -1,0 +1,27 @@
+<mat-form-field class="filter">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+  </mat-form-field>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="users" matSort>
+      <!-- SubscriptionNumber Column -->
+      <ng-container matColumnDef="subscriptionNumber">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Subscription No.</th>
+        <td mat-cell *matCellDef="let user"> {{user.subscriptionNumber}} </td>
+      </ng-container>
+      <!--First name Column -->
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> First name</th>
+        <td mat-cell *matCellDef="let user"> {{user.firstName}} </td>
+      </ng-container>
+
+      <!-- Last name Column -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Last name</th>
+        <td mat-cell *matCellDef="let user"> {{user.lastName}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>

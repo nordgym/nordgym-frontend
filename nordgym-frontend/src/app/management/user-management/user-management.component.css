@@ -28,14 +28,6 @@
   width: 90%;
 }
 
-.mat-elevation-z8 {
-  height: 400px;
-  overflow: auto;
-}
-
-table {
-  width: 100%;
-}
 .validation-alert {
   color: red;
   font-size: smaller;

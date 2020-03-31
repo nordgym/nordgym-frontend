@@ -1,8 +1,6 @@
-import {ChangeDetectionStrategy, Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../../model/user';
 import {UserService} from '../../service/user.service';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 
@@ -13,10 +11,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 
 export class UserManagementComponent implements OnInit {
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
   user: User;
-  displayedColumns: string[] = ['subscriptionNumber', 'firstName', 'lastName'];
-  users: MatTableDataSource<User>;
   userForm: FormGroup;
 
   constructor(private userService: UserService) {
@@ -39,11 +34,6 @@ export class UserManagementComponent implements OnInit {
         Validators.pattern('^[A-Za-z]{2,15}$')
       ]),
     });
-
-    this.userService.getAll().subscribe(data => {
-      this.users = new MatTableDataSource(data);
-      this.users.sort = this.sort;
-    });
   }
 
   get subscriptionNumber() {
@@ -58,13 +48,8 @@ export class UserManagementComponent implements OnInit {
     return this.userForm.get('lastName');
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.users.filter = filterValue.trim().toLowerCase();
-  }
-
   register(data) {
     this.userService.register(data).subscribe();
-    this.userForm.reset();
+    location.reload();
   }
 }

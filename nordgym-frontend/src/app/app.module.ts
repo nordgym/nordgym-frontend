@@ -24,6 +24,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ProductManagementComponent } from './management/product-management/product-management.component';
 import { NewProductFormComponent } from './new-product-form/new-product-form.component';
+import { UserAllComponent } from './user-all/user-all.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { NewProductFormComponent } from './new-product-form/new-product-form.com
     IndexComponent,
     UserManagementComponent,
     ProductManagementComponent,
-    NewProductFormComponent
+    NewProductFormComponent,
+    UserAllComponent
   ],
   imports: [
     BrowserModule,
