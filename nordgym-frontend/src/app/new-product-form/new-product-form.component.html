@@ -1,21 +1,45 @@
-<div class="component-field">
+<div class="component-field-container">
+    <!-- Form body -->
     <div class="input-form">
-        <form class="form" (ngSubmit)="onSubmit()" #userForm="ngForm">
-            <mat-form-field class="input-field" >
+        <form class="form" [formGroup]="productForm" (ngSubmit)="onSubmit()" #userForm="ngForm">
+            <!-- name input field -->
+            <mat-form-field class="input-field">
                 <mat-icon matPrefix>save_alt</mat-icon>
                 <mat-label>Product name</mat-label>
-                <input matInput placeholder="Coffee, Gloves or anything else" id="name" name="name" [(ngModel)]="product.name">
+                <input matInput placeholder="Name between 2 and 50 characters, white spaces allowed"
+                    formControlName="productName" id="name" name="productName" [(ngModel)]="product.name">
+                <div *ngIf="productName.invalid && (productName.dirty || productName.touched)">
+                    <div *ngIf="productName.errors.required">
+                        <span class="validation-alert">is required</span>
+                    </div>
+                    <div *ngIf="productName.errors.pattern">
+                        <span class="validation-alert">must be between 2 and 50 characters long</span>
+                    </div>
+                </div>
             </mat-form-field>
 
+            <!-- price input field -->
             <mat-form-field class="input-field">
                 <mat-icon matPrefix>money</mat-icon>
                 <mat-label>Price</mat-label>
-                <input matInput placeholder="Enter the price for a single product in BGN" id="price" name="price" [(ngModel)]="product.price">
+                <input matInput placeholder="Price in BGN. Ex: 1000, 1000.01, 0.01" formControlName="productPrice"
+                    id="price" name="productPrice" [(ngModel)]="product.price">
+                <div *ngIf="productPrice.invalid && (productPrice.dirty || productPrice.touched)">
+                    <div *ngIf="productPrice.errors.required">
+                        <span class="validation-alert">is required</span>
+                    </div>
+                    <div *ngIf="productPrice.errors.pattern">
+                        <span class="validation-alert">must be between between 0.01 and 9999.99</span>
+                    </div>
+                </div>
             </mat-form-field>
 
+            <!-- buttons at the bottom -->
             <div class="two-buttons">
-                <button type="submit" mat-raised-button color="primary">Submit</button>
-                <button mat-raised-button color="warn" type="reset" (mousedown)="goToProductList()">Cancel</button>    
+                <!-- submit button -->
+                <button mat-raised-button [disabled]="productForm.invalid" type="submit" color="primary">Submit</button>
+                <!-- cancel button -->
+                <button mat-raised-button color="warn" type="reset" (mousedown)="goToProductList()">Cancel</button>
             </div>
         </form>
     </div>

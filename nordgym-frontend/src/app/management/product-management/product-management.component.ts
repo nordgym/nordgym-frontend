@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Product } from '../../model/product';
 import { ProductService } from '../../service/product.service';
 import { MatSort } from '@angular/material/sort';
-import { Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 
@@ -24,7 +23,7 @@ export class ProductManagementComponent implements OnInit {
     this.productService.getAll().subscribe((data) => {
       this.products = new MatTableDataSource(data);
       this.products.sort = this.sort;
-    })
+    });
   }
 
   applyFilter(event: Event) {

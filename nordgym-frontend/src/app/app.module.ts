@@ -26,6 +26,7 @@ import { ProductManagementComponent } from './management/product-management/prod
 import { NewProductFormComponent } from './new-product-form/new-product-form.component';
 import { UserAllComponent } from './user-all/user-all.component';
 import {AlertModule} from './module/alert.module';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import {AlertModule} from './module/alert.module';
     ReactiveFormsModule,
     MatSelectModule,
     MatCheckboxModule,
-    AlertModule
+    AlertModule,
+    MatGridListModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }

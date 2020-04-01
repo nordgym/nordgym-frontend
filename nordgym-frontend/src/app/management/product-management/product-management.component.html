@@ -1,39 +1,63 @@
-<div>
-    <mat-form-field>
+<div class="product-management-container">
+  <!-- search filter and add product button -->
+  <mat-grid-list cols="2" rowHeight="10em" gutterSize="2em">
+    <!--      search filter-->
+    <mat-grid-tile>
+      <mat-form-field class="inputField">
         <mat-label>Filter</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
       </mat-form-field>
-    <button mat-raised-button color="accent" [routerLink]="['/new-product']" routerLinkActive="router-link-active" >New Product</button>
-</div>
+    </mat-grid-tile>
 
-<div id="matTable">
+    <!--    new product button-->
+    <mat-grid-tile>
+      <button mat-raised-button color="accent" [routerLink]="['/new-product']"
+              routerLinkActive="router-link-active">New Product
+      </button>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+
+
+  <!-- table with products -->
+  <div id="matTable">
     <mat-table [dataSource]="products" matSort>
-        <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef mat-sort-header="id">Product ID</mat-header-cell>
-            <mat-cell *matCellDef="let product">{{product.id}}</mat-cell>
-        </ng-container>
+      <!-- id column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header="id">Product ID</mat-header-cell>
+        <mat-cell *matCellDef="let product">{{product.id}}</mat-cell>
+      </ng-container>
 
-        <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef mat-sort-header="name">Product name</mat-header-cell>
-            <mat-cell *matCellDef="let product">{{product.name}}</mat-cell>
-        </ng-container>
+      <!-- name column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header="name">Product name</mat-header-cell>
+        <mat-cell *matCellDef="let product">{{product.name}}</mat-cell>
+      </ng-container>
 
-        <ng-container matColumnDef="price">
-            <mat-header-cell *matHeaderCellDef mat-sort-header="price">Product price</mat-header-cell>
-            <mat-cell *matCellDef="let product">BGN: {{product.price}}</mat-cell>
-        </ng-container>
+      <!-- price column -->
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header="price">Product price</mat-header-cell>
+        <mat-cell *matCellDef="let product">BGN: {{product.price}}</mat-cell>
+      </ng-container>
 
-        <ng-container matColumnDef="edit">
-            <mat-header-cell *matHeaderCellDef></mat-header-cell>
-            <mat-cell *matCellDef="let product"><button mat-raised-button color="primary">Edit</button></mat-cell>
-        </ng-container>
+      <!-- edit button column -->
+      <ng-container matColumnDef="edit">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let product">
+          <button mat-raised-button color="primary">Edit</button>
+        </mat-cell>
+      </ng-container>
 
-        <ng-container matColumnDef="delete">
-            <mat-header-cell *matHeaderCellDef></mat-header-cell>
-            <mat-cell *matCellDef="let product"><button mat-raised-button color="warn">Delete</button></mat-cell>
-        </ng-container>
+      <!-- delete button column -->
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let product">
+          <button mat-raised-button color="warn">Delete</button>
+        </mat-cell>
+      </ng-container>
 
-        <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: tableColumns"></mat-row>
+      <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: tableColumns"></mat-row>
     </mat-table>
+  </div>
 </div>
