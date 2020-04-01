@@ -17,12 +17,10 @@ export class AlertComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.alertService.onAlert(this.id)
       .subscribe(alert => {
-        if (!alert.message) {
-          if (!alert.errors.length) {
+        if (!alert.message && !alert.errors) {
             // clear alerts when an empty alert is received
             this.alerts = [];
             return;
-          }
         }
         // add alert to array
         this.alerts.push(alert);
