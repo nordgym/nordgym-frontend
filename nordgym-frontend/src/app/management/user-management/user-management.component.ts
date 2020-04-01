@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {User} from '../../model/user';
 import {UserService} from '../../service/user.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AlertService} from '../../service/alert.service';
+import {AlertComponent} from '../../alert/alert.component';
 
 
 @Component({
@@ -11,10 +13,11 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 
 export class UserManagementComponent implements OnInit {
+  @ViewChild(AlertComponent) alert: AlertComponent;
   user: User;
   userForm: FormGroup;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private alertService: AlertService) {
   }
 
   ngOnInit(): void {
@@ -49,7 +52,13 @@ export class UserManagementComponent implements OnInit {
   }
 
   register(data) {
-    this.userService.register(data).subscribe();
-    location.reload();
+    // after alert is removed location.reload() is set in function removeAlert() in alert.component.ts
+    this.userService.register(data).subscribe(() => {
+        this.alertService.success(`User ${data.firstName} ${data.lastName} registered successfully!`);
+      },
+      error => {
+        this.alertService.error(error);
+      }
+    );
   }
 }

@@ -25,7 +25,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ProductManagementComponent } from './management/product-management/product-management.component';
 import { NewProductFormComponent } from './new-product-form/new-product-form.component';
 import { UserAllComponent } from './user-all/user-all.component';
-
+import {AlertModule} from './module/alert.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { UserAllComponent } from './user-all/user-all.component';
     UserManagementComponent,
     ProductManagementComponent,
     NewProductFormComponent,
-    UserAllComponent
+    UserAllComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +57,8 @@ import { UserAllComponent } from './user-all/user-all.component';
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    AlertModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }

@@ -11,22 +11,19 @@ export class HttpErrorInterceptor implements HttpInterceptor {
       .pipe(
         retry(1),
         catchError((error: HttpErrorResponse) => {
-          let errorMessage = '';
+          const errorMessages = [];
 
           if (error.error instanceof ErrorEvent) {
             // client-side error
-            errorMessage = `Error: ${error.error.message}`;
+            errorMessages.push(`Error: ${error.error.message}`);
           } else {
             // server-side error
-            errorMessage = `Error Code: ${error.status}\n`;
+            // errorMessages.push(`Error Code: ${error.status}`);
             Object.keys(error.error).forEach(key => {
-              errorMessage += `${error.error[key]}\n`;
+              errorMessages.push(`${error.error[key]}`);
             });
           }
-          window.alert(errorMessage);
-
-          return throwError(errorMessage);
-
+          return throwError(errorMessages);
         })
       );
   }

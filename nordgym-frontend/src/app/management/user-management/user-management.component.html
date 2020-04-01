@@ -1,5 +1,6 @@
 <div class="user-management-container">
   <div class="register-box">
+    <app-alert #alertComponent></app-alert>
     <form [formGroup]="userForm" (ngSubmit)="register(userForm.value)">
       <mat-form-field appearance="fill">
         <mat-label>Subscription number</mat-label>
