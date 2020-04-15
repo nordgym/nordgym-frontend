@@ -30,4 +30,10 @@ export class ProductManagementComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.products.filter = filterValue.trim().toLowerCase();
   }
+
+  deleteProduct(id) {
+    this.productService.delete(id).subscribe(data => {
+
+    })
+  }
 }
