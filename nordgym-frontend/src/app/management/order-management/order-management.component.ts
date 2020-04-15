@@ -1,27 +1,15 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatSort} from '@angular/material/sort';
-import {SelectionModel} from '@angular/cdk/collections';
-import {MatTableDataSource} from '@angular/material/table';
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  price: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Coffee', price: 1.50, symbol: 'H'},
-  {position: 2, name: 'Shake', price: 4.00, symbol: 'He'},
-  {position: 3, name: 'Amino', price: 2.00, symbol: 'Li'},
-  {position: 4, name: 'Protein bar', price: 9.00, symbol: 'Be'},
-  {position: 5, name: 'Tee', price: 1.00, symbol: 'B'},
-  {position: 6, name: 'Creatine', price: 12.00, symbol: 'C'},
-  {position: 7, name: 'C4', price: 3.00, symbol: 'N'},
-  {position: 8, name: 'L-carnitine', price: 15.00, symbol: 'O'},
-  {position: 9, name: 'L-glutamine', price: 18.00, symbol: 'F'},
-  {position: 10, name: 'Honey', price: 0.50, symbol: 'Ne'},
-];
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
+import {Product} from '../../model/product';
+import {ProductService} from '../../service/product.service';
+import {Observable} from 'rxjs';
+import {map, startWith, switchMap} from 'rxjs/operators';
+import {User} from '../../model/user';
+import {UserService} from '../../service/user.service';
+import {Order} from '../../model/order';
+import {OrderService} from '../../service/order.service';
+import {Membership} from '../../model/membership';
+import {MembershipService} from '../../service/membership.service';
 
 @Component({
   selector: 'app-order-management',
@@ -29,37 +17,124 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./order-management.component.css']
 })
 export class OrderManagementComponent implements OnInit {
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
-  displayedColumns: string[] = ['select', 'position', 'name', 'price', 'symbol'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  selection = new SelectionModel<PeriodicElement>(true, []);
+  products: Product[] = [];
+  memberships: Membership[] = [];
+  order: Order = new Order();
+  userOptions: Observable<User[]>;
+  userControl = new FormControl();
+  productControl = new FormControl();
+  membershipControl = new FormControl();
+  filteredOptions: Observable<User[]>;
+  displayedColumns = ['name', 'price', 'decrement', 'count', 'increment'];
+  selectedProducts: Product[] = [];
+  selectedMemberships: Membership[] = [];
 
-  constructor() {
+  constructor(private productService: ProductService, private userService: UserService,
+              private orderService: OrderService, private membershipService: MembershipService) {
   }
 
-  ngOnInit(): void {
-    this.dataSource.sort = this.sort;
+  ngOnInit() {
+    this.productService.getAll().subscribe(data => {
+      this.products = data.sort((p1, p2) => p1.name.localeCompare(p2.name));
+    });
+    this.membershipService.getAll().subscribe(data => {
+      this.memberships = data.sort((m1, m2) => m1.name.localeCompare(m2.name));
+    });
+    this.userOptions = this.userService.getAll();
+
+    this.filteredOptions = this.userControl.valueChanges
+      .pipe(
+        startWith(''),
+        switchMap(value => this._filter(value))
+      );
   }
 
-  /** Whether the number of selected elements matches the total number of rows. */
-  isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
-    return numSelected === numRows;
-  }
-
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
-  masterToggle() {
-    this.isAllSelected() ?
-      this.selection.clear() :
-      this.dataSource.data.forEach(row => this.selection.select(row));
-  }
-
-  /** The label for the checkbox on the passed row */
-  checkboxLabel(row?: PeriodicElement): string {
-    if (!row) {
-      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+  private _filter(value: string | User) {
+    let filterValue = '';
+    if (value) {
+      filterValue = typeof value === 'string' ? value.toLowerCase() : value.firstName + ' ' + value.lastName.toLowerCase();
+      return this.userOptions.pipe(
+        map(users => users.filter(user =>
+          user.firstName.toLowerCase().includes(filterValue) ||
+          user.lastName.toLowerCase().includes(filterValue) ||
+          `${user.firstName} ${user.lastName}`.toLowerCase().includes(filterValue)
+          )
+        )
+      );
+    } else {
+      return this.userOptions;
     }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
+  }
+
+  getTotalCost() {
+    const totalCostProducts = this.order.products.length ?
+      this.order.products.map(p => p.price).reduce((acc, value) => acc + value, 0) : 0;
+    const totalCostMemberships = this.order.memberships.length ?
+      this.order.memberships.map(m => m.price).reduce((acc, value) => acc + value, 0) : 0;
+    return totalCostProducts + totalCostMemberships;
+  }
+
+  getSelectedProducts(selectedProducts: Product[]) {
+    this.order.products = [];
+    selectedProducts.forEach(p => {
+      const product = new Product();
+      product.id = p.id;
+      product.name = p.name;
+      product.price = p.price;
+      this.order.products.push(product);
+    });
+  }
+
+  getSelectedUser(user: User) {
+    this.order.user = user;
+  }
+
+  displayFn(user?: User): string | undefined {
+    return user ? user.firstName + ' ' + user.lastName : undefined;
+  }
+
+  decrementCounter(orderedItem: Product | Membership) {
+    let originalPrice = 0;
+    if (orderedItem instanceof Product) {
+      originalPrice = this.products.find(product => product.id === orderedItem.id).price;
+      if (orderedItem.price >= originalPrice * 2) {
+        orderedItem.price -= originalPrice;
+        orderedItem.count--;
+      }
+    } else {
+      originalPrice = this.memberships.find(membership => membership.id === orderedItem.id).price;
+      if (orderedItem.price >= originalPrice * 2) {
+        orderedItem.price -= originalPrice;
+        orderedItem.count--;
+      }
+    }
+  }
+
+  incrementCounter(orderedItem: Product | Membership) {
+    if (orderedItem instanceof Product) {
+      orderedItem.price += this.products.find(product => product.id === orderedItem.id).price;
+    } else {
+      orderedItem.price += this.memberships.find(membership => membership.id === orderedItem.id).price;
+    }
+    orderedItem.count++;
+  }
+
+  soldOut() {
+    this.orderService.save(this.order).subscribe();
+    this.selectedProducts = [];
+    this.userControl.reset();
+    this.order.user = new User();
+    this.order.products = [];
+  }
+
+  getSelectedMemberships(selectedMemberships: Membership[]) {
+    this.order.memberships = [];
+    selectedMemberships.forEach(m => {
+      const membership = new Membership();
+      membership.id = m.id;
+      membership.name = m.name;
+      membership.price = m.price;
+      this.order.memberships.push(membership);
+    });
   }
 }

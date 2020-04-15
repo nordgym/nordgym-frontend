@@ -1,13 +1,51 @@
 .order-management-container {
-  margin: 2em 0 3em 1em;
+  margin-top: 2em;
   width: 100%;
 }
 
-.example-container {
-  height: 400px;
+.order-select {
+  width: 100%;
+}
+
+.full-width {
+  width: 80%;
+}
+
+mat-grid-tile {
+  border: red solid 3px;
+}
+
+/* order table */
+.pre-order-table {
+  margin-top: auto;
+  height: 360px;
   overflow: auto;
+  width: 100%;
 }
 
 table {
-  width: 30%;
+  width: 100%;
+}
+
+tr.mat-footer-row {
+  font-weight: bold;
+}
+
+.mat-table-sticky {
+  border-top: 1px solid #e0e0e0;
+}
+
+.open-order {
+  width: 75%;
+  margin: 5rem auto 0 auto;
+}
+.open-order mat-panel-description {
+  width: 50%;
+}
+.btn-sold-out {
+  position: absolute;
+  left: 0;
+}
+.count {
+  width: 3em;
 }

@@ -14,9 +14,15 @@ import { UserManagementComponent } from './management/user-management/user-manag
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductManagementComponent } from './management/product-management/product-management.component';
 import { NewProductFormComponent } from './new-product-form/new-product-form.component';
-import { UserAllComponent } from './user-all/user-all.component';
+import { UsersComponent } from './users/users.component';
 import {AlertModule} from './module/alert.module';
 import {MaterialUiModule} from './module/material-ui.module';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { OpenOrdersComponent } from './open-orders/open-orders.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { MembershipManagementComponent } from './management/membership-management/membership-management.component';
+import { MembershipsComponent } from './memberships/memberships.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +33,10 @@ import {MaterialUiModule} from './module/material-ui.module';
     UserManagementComponent,
     ProductManagementComponent,
     NewProductFormComponent,
-    UserAllComponent,
+    UsersComponent,
+    OpenOrdersComponent,
+    MembershipManagementComponent,
+    MembershipsComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +48,10 @@ import {MaterialUiModule} from './module/material-ui.module';
     FormsModule,
     ReactiveFormsModule,
     AlertModule,
-    MaterialUiModule
+    MaterialUiModule,
+    MatGridListModule,
+    MatAutocompleteModule,
+    MatExpansionModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }

@@ -1,6 +1,7 @@
-export class Product {
+export class Membership {
   id: number;
   name: string;
+  passes: number;
   price: number;
   count = 1;
 

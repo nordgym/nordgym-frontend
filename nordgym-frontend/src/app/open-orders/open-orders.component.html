@@ -1,0 +1,31 @@
+<mat-accordion *ngIf="openOrders$ | async as orders">
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false"
+                       *ngFor="let order of orders">
+    <mat-expansion-panel-header #panelH (click)="panelH._toggle()">
+      <mat-panel-title>
+        <i class="material-icons app-toolbar-menu" (click)="panelH._toggle()">swap_vertical_circle
+        </i>
+      </mat-panel-title>
+      <mat-panel-title>
+       order id: {{order.id }}
+      </mat-panel-title>
+      <mat-panel-title>
+        date and time: {{order.dateTime | date: 'medium'}}
+      </mat-panel-title>
+      <mat-panel-title >
+        user: {{order.user?.firstName + ' ' + order.user?.lastName}}
+      </mat-panel-title>
+      <mat-panel-title>
+        amount: {{getTotalCost(order) | number: '0.2' }} .lv
+      </mat-panel-title>
+      <button class="btn-complete"
+              mat-stroked-button
+              color="primary"
+              (click)="complete(order.id)">
+        complete
+      </button>
+    </mat-expansion-panel-header>
+    <p *ngFor="let product of order.products">{{product.name}}</p>
+  </mat-expansion-panel>
+</mat-accordion>

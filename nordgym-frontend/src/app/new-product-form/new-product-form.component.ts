@@ -25,7 +25,7 @@ export class NewProductFormComponent {
     this.productForm = new FormGroup({
       productName: new FormControl(this.product.name, [
         Validators.required,
-        Validators.pattern('^[A-Za-z ]{2,50}')
+        Validators.pattern('^[A-Za-z -]{2,50}$')
       ]),
       productPrice: new FormControl(this.product.price, [
         Validators.required,

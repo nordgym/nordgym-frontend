@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from '../model/user';
@@ -7,14 +7,20 @@ import {User} from '../model/user';
   providedIn: 'root'
 })
 export class UserService {
+  baseUrl = 'http://localhost:8080/users';
 
-  constructor(private http: HttpClient) { }
-
-  getAll(): Observable<User[]> {
-    return this.http.get<User[]>('http://localhost:8080/user/all');
+  constructor(private http: HttpClient) {
   }
 
-  register(data: any) {
-    return this.http.post('http://localhost:8080/user/register', data);
+  getAll(): Observable<User[]> {
+    return this.http.get<User[]>(this.baseUrl + '/all');
+  }
+
+  register(user: User) {
+    return this.http.post(this.baseUrl + '/save', user);
+  }
+
+  delete(id: number) {
+    return this.http.delete(this.baseUrl + '/delete/' + id);
   }
 }

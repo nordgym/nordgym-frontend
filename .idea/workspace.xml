@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dcd663a2-2634-4faa-91a9-e4e523c48bb7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="06dbc0b4-0085-4026-8975-b6c1c6f21840" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/management/order-management/order-management.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/management/order-management/order-management.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/management/order-management/order-management.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/management/order-management/order-management.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/management/order-management/order-management.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/management/order-management/order-management.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/model/product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/model/product.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/service/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/service/product.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,17 +73,31 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1585750881286" />
-    <state x="168" y="94" key="MergeDialog" timestamp="1585731863529">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="144" y="96" key="DiffContextDialog" timestamp="1586973495264">
+      <screen x="0" y="23" width="1440" height="836" />
+    </state>
+    <state x="144" y="96" key="DiffContextDialog/0.23.1440.836@0.23.1440.836" timestamp="1586973495264" />
+    <state x="144" y="98" key="MergeDialog" timestamp="1586973594761">
+      <screen x="0" y="23" width="1440" height="836" />
     </state>
     <state x="168" y="94" key="MergeDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1585731863529" />
-    <state x="551" y="248" key="MultipleFileMergeDialog" timestamp="1585731863563">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="144" y="98" key="MergeDialog/0.23.1440.836@0.23.1440.836" timestamp="1586973594761" />
+    <state x="472" y="220" key="MultipleFileMergeDialog" timestamp="1586973597965">
+      <screen x="0" y="23" width="1440" height="836" />
     </state>
     <state x="551" y="248" key="MultipleFileMergeDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1585731863563" />
+    <state x="472" y="220" key="MultipleFileMergeDialog/0.23.1440.836@0.23.1440.836" timestamp="1586973597965" />
+    <state x="395" y="170" key="RollbackChangesDialog" timestamp="1586973497000">
+      <screen x="0" y="23" width="1440" height="836" />
+    </state>
+    <state x="395" y="170" key="RollbackChangesDialog/0.23.1440.836@0.23.1440.836" timestamp="1586973497000" />
     <state x="505" y="248" key="run.anything.popup" timestamp="1585730148877">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="505" y="248" key="run.anything.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1585730148877" />
+    <state x="385" y="183" width="670" height="676" key="search.everywhere.popup" timestamp="1586973583600">
+      <screen x="0" y="23" width="1440" height="836" />
+    </state>
+    <state x="385" y="183" width="670" height="676" key="search.everywhere.popup/0.23.1440.836@0.23.1440.836" timestamp="1586973583600" />
   </component>
 </project>
