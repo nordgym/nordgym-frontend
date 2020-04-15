@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs'
-import { Product } from '../model/product'
+import {Observable} from 'rxjs';
+import {Product} from '../model/product';
 import {catchError} from 'rxjs/operators';
 
 @Injectable({
@@ -26,7 +26,8 @@ export class ProductService {
     return this.http.post<Product>(this.saveUrl, product);
   }
 
-  delete(id: number): Observable<{}> {
-    return this.http.delete(this.deleteUrl);
+  delete(product: Product | number): Observable<Product> {
+    // return this.http.delete(this.deleteUrl);
+    return null;
   }
 }

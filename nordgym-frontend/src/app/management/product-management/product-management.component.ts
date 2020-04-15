@@ -34,6 +34,6 @@ export class ProductManagementComponent implements OnInit {
   deleteProduct(id) {
     this.productService.delete(id).subscribe(data => {
 
-    })
+    });
   }
 }
