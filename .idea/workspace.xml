@@ -3,14 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="06dbc0b4-0085-4026-8975-b6c1c6f21840" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/open-orders/open-orders.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/order-list/order-list.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/open-orders/open-orders.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/order-list/order-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/open-orders/open-orders.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/order-list/order-list.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/open-orders/open-orders.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/order-list/order-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/orders.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/orders.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/orders.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/orders.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/users/user-profile/user-profile.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/users/user-profile/user-profile.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/memberships/membership-list/membership-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/memberships/membership-list/membership-list.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/memberships/membership-list/membership-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/memberships/membership-list/membership-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/memberships/membership-list/membership-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/memberships/membership-list/membership-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/memberships/memberships.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/memberships/memberships.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/users/user-list/user-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/users/user-list/user-list.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/users/user-list/user-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/users/user-list/user-list.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/users/user-profile/user-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/users/user-profile/user-profile.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/users/user-profile/user-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/users/user-profile/user-profile.component.ts" afterDir="false" />
     </list>
@@ -88,14 +86,18 @@
       <screen x="0" y="23" width="1440" height="836" />
     </state>
     <state x="320" y="106" key="#Inspections/0.23.1440.836@0.23.1440.836" timestamp="1587130237550" />
+    <state x="533" y="164" key="#com.intellij.ide.util.MemberChooser" timestamp="1587158713688">
+      <screen x="0" y="23" width="1440" height="836" />
+    </state>
+    <state x="533" y="164" key="#com.intellij.ide.util.MemberChooser/0.23.1440.836@0.23.1440.836" timestamp="1587158713688" />
     <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585750881286">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1585750881286" />
-    <state x="144" y="96" key="DiffContextDialog" timestamp="1586975279534">
+    <state x="144" y="96" key="DiffContextDialog" timestamp="1587159975563">
       <screen x="0" y="23" width="1440" height="836" />
     </state>
-    <state x="144" y="96" key="DiffContextDialog/0.23.1440.836@0.23.1440.836" timestamp="1586975279534" />
+    <state x="144" y="96" key="DiffContextDialog/0.23.1440.836@0.23.1440.836" timestamp="1587159975563" />
     <state width="1419" height="217" key="GridCell.Tab.0.bottom" timestamp="1587130661560">
       <screen x="0" y="23" width="1440" height="836" />
     </state>
@@ -122,17 +124,17 @@
     </state>
     <state x="551" y="248" key="MultipleFileMergeDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1585731863563" />
     <state x="472" y="220" key="MultipleFileMergeDialog/0.23.1440.836@0.23.1440.836" timestamp="1586973597965" />
-    <state x="395" y="170" key="RollbackChangesDialog" timestamp="1586985312723">
+    <state x="395" y="170" key="RollbackChangesDialog" timestamp="1587159982373">
       <screen x="0" y="23" width="1440" height="836" />
     </state>
-    <state x="395" y="170" key="RollbackChangesDialog/0.23.1440.836@0.23.1440.836" timestamp="1586985312723" />
+    <state x="395" y="170" key="RollbackChangesDialog/0.23.1440.836@0.23.1440.836" timestamp="1587159982373" />
     <state x="505" y="248" key="run.anything.popup" timestamp="1585730148877">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="505" y="248" key="run.anything.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1585730148877" />
-    <state x="385" y="183" width="670" height="676" key="search.everywhere.popup" timestamp="1586973583600">
+    <state x="385" y="183" width="670" height="676" key="search.everywhere.popup" timestamp="1587157448539">
       <screen x="0" y="23" width="1440" height="836" />
     </state>
-    <state x="385" y="183" width="670" height="676" key="search.everywhere.popup/0.23.1440.836@0.23.1440.836" timestamp="1586973583600" />
+    <state x="385" y="183" width="670" height="676" key="search.everywhere.popup/0.23.1440.836@0.23.1440.836" timestamp="1587157448539" />
   </component>
 </project>

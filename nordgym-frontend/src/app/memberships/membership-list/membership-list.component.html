@@ -1,7 +1,3 @@
-<mat-form-field class="filter">
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
-</mat-form-field>
 <table mat-table [dataSource]="memberships" matSort>
   <!-- SubscriptionNumber Column -->
   <ng-container matColumnDef="name">

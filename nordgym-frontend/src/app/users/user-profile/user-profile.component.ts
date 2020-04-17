@@ -1,57 +1,52 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {logger} from 'codelyzer/util/logger';
-import {map, tap} from 'rxjs/operators';
+import {Component, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {map} from 'rxjs/operators';
 import {User} from '../user';
 import {UserService} from '../user.service';
-import {Observable} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {Order} from '../../orders/order';
 import {OrderService} from '../../orders/order.service';
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
+import {MatTableDataSource} from '@angular/material/table';
+import {Membership} from '../../memberships/membership';
+import {MatSort} from '@angular/material/sort';
+import {MembershipService} from '../../memberships/membership.service';
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.css']
 })
-export class UserProfileComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+export class UserProfileComponent implements OnInit, OnDestroy {
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @Output() sortMemberships = this.sort;
+  memberships: MatTableDataSource<Membership>;
+  subscription$: Subscription;
   user$: Observable<User>;
   orders$: Observable<Order[]>;
 
   constructor(
     private userService: UserService,
+    private membershipService: MembershipService,
     private orderService: OrderService,
     private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.subscription$ = this.membershipService.getAll().subscribe(data => {
+        this.memberships = new MatTableDataSource(data);
+        this.memberships.sort = this.sort;
+      }
+    );
     this.route.paramMap.subscribe(params => {
       const id = +params.get('id');
       this.user$ = this.userService.getById(id);
       this.orders$ = this.orderService.getAllByUserId(id).pipe(
         map(data => this.makeOpenOrdersOnTop(data)));
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription$.unsubscribe();
   }
 
   makeOpenOrdersOnTop(orders: Order[]): Order[] {

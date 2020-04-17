@@ -31,11 +31,6 @@ export class MembershipListComponent implements OnInit, OnDestroy {
     this.subscription$.unsubscribe();
   }
 
-  applyFilter($event: KeyboardEvent) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.memberships.filter = filterValue.trim().toLowerCase();
-  }
-
   delete(id: number) {
     this.membershipService.delete(id).subscribe();
     window.location.reload();

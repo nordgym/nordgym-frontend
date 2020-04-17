@@ -2,7 +2,6 @@
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
   </mat-form-field>
-  <div class="mat-elevation-z8">
     <table mat-table [dataSource]="users" matSort>
       <!-- SubscriptionNumber Column -->
       <ng-container matColumnDef="subscriptionNumber">
@@ -34,4 +33,3 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-  </div>
