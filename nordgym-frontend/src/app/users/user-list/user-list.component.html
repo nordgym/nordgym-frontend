@@ -7,7 +7,9 @@
       <!-- SubscriptionNumber Column -->
       <ng-container matColumnDef="subscriptionNumber">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Subscription No.</th>
-        <td mat-cell *matCellDef="let user"> {{user.subscriptionNumber}} </td>
+        <td mat-cell *matCellDef="let user">
+          <a mat-button [routerLink]="['/users','profile', user.id]">{{user.subscriptionNumber}}</a>
+        </td>
       </ng-container>
       <!--First name Column -->
       <ng-container matColumnDef="firstName">

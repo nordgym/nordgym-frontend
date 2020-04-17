@@ -19,6 +19,7 @@ import { OpenOrdersComponent } from './orders/open-orders/open-orders.component'
 import { MembershipsComponent } from './memberships/memberships.component';
 import { MembershipListComponent } from './memberships/membership-list/membership-list.component';
 import {MaterialUiModule} from './material-ui/material-ui.module';
+import { UserProfileComponent } from './users/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {MaterialUiModule} from './material-ui/material-ui.module';
     OpenOrdersComponent,
     MembershipsComponent,
     MembershipListComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,7 @@ import {MaterialUiModule} from './material-ui/material-ui.module';
     FormsModule,
     ReactiveFormsModule,
     AlertModule,
-    MaterialUiModule
+    MaterialUiModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }

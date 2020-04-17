@@ -1,8 +1,9 @@
-.mat-elevation-z8 {
+.user-memberships {
   height: 400px;
+  width: 600px;
   overflow: auto;
 }
 
-table {
+.user-memberships table {
   width: 100%;
 }

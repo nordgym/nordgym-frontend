@@ -8,16 +8,16 @@
         </i>
       </mat-panel-title>
       <mat-panel-title>
-       order id: {{order.id }}
+        order id: {{order.id }}
       </mat-panel-title>
       <mat-panel-title>
-        date and time: {{order.dateTime | date: 'medium'}}
+        {{order.dateTime | date: 'medium'}}
       </mat-panel-title>
-      <mat-panel-title >
-        user: {{order.user?.firstName + ' ' + order.user?.lastName}}
+      <mat-panel-title *ngIf="order.user">
+        <a mat-button [routerLink]="['/users','profile',order.user.id]">{{order.user.firstName + ' ' + order.user?.lastName}}</a>
       </mat-panel-title>
       <mat-panel-title>
-        amount: {{getTotalCost(order) | number: '0.2' }} .lv
+        {{getTotalCost(order) | number: '0.2' }} .lv
       </mat-panel-title>
       <button class="btn-complete"
               mat-stroked-button

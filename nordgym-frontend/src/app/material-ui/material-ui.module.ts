@@ -14,6 +14,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {AppRoutingModule} from '../app-routing.module';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatCardModule} from '@angular/material/card';
 
 const modules = [
   AppRoutingModule,
@@ -31,7 +33,9 @@ const modules = [
   MatCheckboxModule,
   MatGridListModule,
   MatAutocompleteModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatTabsModule,
+  MatCardModule
 ];
 
 @NgModule({
