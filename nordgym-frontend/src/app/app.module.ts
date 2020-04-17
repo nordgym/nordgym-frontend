@@ -15,7 +15,7 @@ import { ProductsComponent } from './products/products.component';
 import { NewProductFormComponent } from './products/new-product-form/new-product-form.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import {AlertModule} from './alert/alert.module';
-import { OpenOrdersComponent } from './orders/open-orders/open-orders.component';
+import { OrderListComponent } from './orders/order-list/order-list.component';
 import { MembershipsComponent } from './memberships/memberships.component';
 import { MembershipListComponent } from './memberships/membership-list/membership-list.component';
 import {MaterialUiModule} from './material-ui/material-ui.module';
@@ -31,7 +31,7 @@ import { UserProfileComponent } from './users/user-profile/user-profile.componen
     NewProductFormComponent,
     UsersComponent,
     UserListComponent,
-    OpenOrdersComponent,
+    OrderListComponent,
     MembershipsComponent,
     MembershipListComponent,
     UserProfileComponent,

@@ -14,9 +14,9 @@ mat-form-field {
   width: 100%;
 }
 .user-memberships, .user-orders {
-  height: 90%;
+  height: 25em;
   overflow: auto;
-  width: 600px;
+  width: 50em;
 }
 
 img {

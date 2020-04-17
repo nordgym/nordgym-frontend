@@ -1,4 +1,4 @@
-<mat-accordion *ngIf="openOrders$ | async as orders">
+<mat-accordion *ngIf="orders$ | async as orders">
   <mat-expansion-panel (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false"
                        *ngFor="let order of orders">
@@ -19,7 +19,7 @@
       <mat-panel-title>
         {{getTotalCost(order) | number: '0.2' }} .lv
       </mat-panel-title>
-      <button class="btn-complete"
+      <button [disabled]="!order.isOpen" class="btn-complete"
               mat-stroked-button
               color="primary"
               (click)="complete(order.id)">

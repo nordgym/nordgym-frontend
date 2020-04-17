@@ -3,7 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="06dbc0b4-0085-4026-8975-b6c1c6f21840" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/order.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/order.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/open-orders/open-orders.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/order-list/order-list.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/open-orders/open-orders.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/order-list/order-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/open-orders/open-orders.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/order-list/order-list.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/open-orders/open-orders.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/order-list/order-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/orders.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/orders.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/orders.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/orders.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/users/user-profile/user-profile.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/users/user-profile/user-profile.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/users/user-profile/user-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/users/user-profile/user-profile.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/users/user-profile/user-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/users/user-profile/user-profile.component.ts" afterDir="false" />
     </list>

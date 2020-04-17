@@ -37,7 +37,7 @@ export class UserProfileComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
   user$: Observable<User>;
-  userOrders$: Observable<Order[]>;
+  orders$: Observable<Order[]>;
 
   constructor(
     private userService: UserService,
@@ -49,8 +49,17 @@ export class UserProfileComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       const id = +params.get('id');
       this.user$ = this.userService.getById(id);
-      this.userOrders$ = this.orderService.getAllByUserId(id);
+      this.orders$ = this.orderService.getAllByUserId(id).pipe(
+        map(data => this.makeOpenOrdersOnTop(data)));
     });
   }
 
+  makeOpenOrdersOnTop(orders: Order[]): Order[] {
+    const completeOrders = [];
+    const openOrders = [];
+    orders.forEach(order => {
+      order.isOpen ? openOrders.push(order) : completeOrders.push(order);
+    });
+    return openOrders.concat(completeOrders);
+  }
 }

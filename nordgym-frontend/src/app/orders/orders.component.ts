@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Product} from '../products/product';
 import {ProductService} from '../products/product.service';
@@ -17,6 +17,7 @@ import {MembershipService} from '../memberships/membership.service';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
+  @Output() openOrders$: Observable<Order[]>;
   products: Product[] = [];
   memberships: Membership[] = [];
   order: Order = new Order();
@@ -47,6 +48,7 @@ export class OrdersComponent implements OnInit {
         startWith(''),
         switchMap(value => this._filter(value))
       );
+    this.openOrders$ = this.orderService.getAllOpen();
   }
 
   private _filter(value: string | User) {
@@ -122,6 +124,7 @@ export class OrdersComponent implements OnInit {
   soldOut() {
     this.orderService.save(this.order).subscribe();
     this.resetOrder();
+    window.location.reload();
   }
 
   getSelectedMemberships(selectedMemberships: Membership[]) {

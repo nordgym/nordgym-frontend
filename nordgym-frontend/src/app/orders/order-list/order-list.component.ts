@@ -1,22 +1,22 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Order} from '../order';
 import {OrderService} from '../order.service';
+import {delay, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-orders',
-  templateUrl: './open-orders.component.html',
-  styleUrls: ['./open-orders.component.css']
+  templateUrl: './order-list.component.html',
+  styleUrls: ['./order-list.component.css']
 })
-export class OpenOrdersComponent implements OnInit {
+export class OrderListComponent implements OnInit {
   panelOpenState = false;
-  openOrders$: Observable<Order[]>;
+  @Input() orders$: Observable<Order[]>;
 
   constructor(private orderService: OrderService) {
   }
 
   ngOnInit(): void {
-    this.openOrders$ = this.orderService.getAllOpen();
   }
 
   getTotalCost(order: Order): number {
