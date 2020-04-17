@@ -26,5 +26,9 @@ export class OrderService {
   complete(id: number) {
     return this.http.patch(this.baseUrl + '/complete', id);
   }
+
+  getAllByUserId(id: number): Observable<Order[]> {
+    return this.http.get<Order[]>(this.baseUrl + `/all/user/id?id=${id}`);
+  }
 }
 

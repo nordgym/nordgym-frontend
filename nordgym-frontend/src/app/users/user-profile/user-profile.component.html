@@ -55,7 +55,7 @@
         </div>
       </mat-tab>
       <mat-tab label="Orders">
-        <div class="user-orders">
+        <div class="user-orders" *ngIf="userOrders$ | async as orders">
           <table mat-table [dataSource]="dataSource">
             <!-- Position Column -->
             <ng-container matColumnDef="position">

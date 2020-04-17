@@ -5,6 +5,8 @@ import {map, tap} from 'rxjs/operators';
 import {User} from '../user';
 import {UserService} from '../user.service';
 import {Observable} from 'rxjs';
+import {Order} from '../../orders/order';
+import {OrderService} from '../../orders/order.service';
 
 export interface PeriodicElement {
   name: string;
@@ -35,9 +37,11 @@ export class UserProfileComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
   user$: Observable<User>;
+  userOrders$: Observable<Order[]>;
 
   constructor(
     private userService: UserService,
+    private orderService: OrderService,
     private route: ActivatedRoute) {
   }
 
@@ -45,6 +49,7 @@ export class UserProfileComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       const id = +params.get('id');
       this.user$ = this.userService.getById(id);
+      this.userOrders$ = this.orderService.getAllByUserId(id);
     });
   }
 
