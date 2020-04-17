@@ -1,7 +1,7 @@
-<mat-grid-list cols="2" rowHeight="10em">
+<mat-grid-list cols="2" rowHeight="5em">
     <mat-grid-tile
       [colspan]="1"
-      [rowspan]="3">
+      [rowspan]="4">
         <form [formGroup]="membershipForm" (ngSubmit)="save(membershipForm.value)" >
           <!-- Membership name input field -->
           <mat-form-field appearance="outline">
@@ -28,7 +28,7 @@
     </mat-grid-tile>
     <mat-grid-tile
       [colspan]="1"
-      [rowspan]="4">
+      [rowspan]="8">
       <div class="membership-list">
         <app-memberships></app-memberships>
       </div>

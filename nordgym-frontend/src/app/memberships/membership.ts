@@ -3,8 +3,11 @@ export class Membership {
   name: string;
   passes: number;
   price: number;
+  startDate: Date;
+  endDate: Date;
   count = 1;
 
   constructor() {
   }
+
 }
