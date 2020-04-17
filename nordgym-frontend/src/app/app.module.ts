@@ -1,42 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from './interceptor/http-error-interceptor';
-import { OrderManagementComponent } from './management/order-management/order-management.component';
+import { OrdersComponent } from './orders/orders.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { IndexComponent } from './index/index.component';
-import { UserManagementComponent } from './management/user-management/user-management.component';
+import {UsersComponent} from './users/users.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProductManagementComponent } from './management/product-management/product-management.component';
-import { NewProductFormComponent } from './new-product-form/new-product-form.component';
-import { UsersComponent } from './users/users.component';
-import {AlertModule} from './module/alert.module';
-import {MaterialUiModule} from './module/material-ui.module';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { OpenOrdersComponent } from './open-orders/open-orders.component';
-import {MatExpansionModule} from '@angular/material/expansion';
-import { MembershipManagementComponent } from './management/membership-management/membership-management.component';
+import { ProductsComponent } from './products/products.component';
+import { NewProductFormComponent } from './products/new-product-form/new-product-form.component';
+import { UserListComponent } from './users/user-list/user-list.component';
+import {AlertModule} from './alert/alert.module';
+import { OpenOrdersComponent } from './orders/open-orders/open-orders.component';
 import { MembershipsComponent } from './memberships/memberships.component';
+import { MembershipListComponent } from './memberships/membership-list/membership-list.component';
+import {MaterialUiModule} from './material-ui/material-ui.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OrderManagementComponent,
+    OrdersComponent,
     SideNavComponent,
     IndexComponent,
-    UserManagementComponent,
-    ProductManagementComponent,
+    ProductsComponent,
     NewProductFormComponent,
     UsersComponent,
+    UserListComponent,
     OpenOrdersComponent,
-    MembershipManagementComponent,
     MembershipsComponent,
+    MembershipListComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,10 +44,7 @@ import { MembershipsComponent } from './memberships/memberships.component';
     FormsModule,
     ReactiveFormsModule,
     AlertModule,
-    MaterialUiModule,
-    MatGridListModule,
-    MatAutocompleteModule,
-    MatExpansionModule
+    MaterialUiModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }

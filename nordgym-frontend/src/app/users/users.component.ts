@@ -1,43 +1,64 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {MatSort} from '@angular/material/sort';
-import {User} from '../model/user';
-import {MatTableDataSource} from '@angular/material/table';
-import {UserService} from '../service/user.service';
-import {Subscription} from 'rxjs';
+import {User} from './user';
+import {UserService} from './user.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AlertService} from '../alert/alert.service';
+import {AlertComponent} from '../alert/alert.component';
+
 
 @Component({
-  selector: 'app-users',
+  selector: 'app-user-management',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  styleUrls: ['./users.component.css'],
 })
-export class UsersComponent implements OnInit, OnDestroy {
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
-  displayedColumns: string[] = ['subscriptionNumber', 'firstName', 'lastName', 'delete'];
-  users: MatTableDataSource<User>;
-  subscription$: Subscription;
 
-  constructor(private userService: UserService) {
+export class UsersComponent implements OnInit {
+  @ViewChild(AlertComponent) alert: AlertComponent;
+  user: User;
+  userForm: FormGroup;
+
+  constructor(private userService: UserService, private alertService: AlertService) {
   }
 
   ngOnInit(): void {
-    this.subscription$ = this.userService.getAll().subscribe(data => {
-        this.users = new MatTableDataSource(data);
-        this.users.sort = this.sort;
+    this.user = new User();
+
+    this.userForm = new FormGroup({
+      subscriptionNumber: new FormControl(this.user.subscriptionNumber, [
+        Validators.required,
+        Validators.pattern('^[\\d]{10}$')
+      ]),
+      firstName: new FormControl(this.user.firstName, [
+        Validators.required,
+        Validators.pattern('^[A-Za-z]{2,15}$')
+      ]),
+      lastName: new FormControl(this.user.lastName, [
+        Validators.required,
+        Validators.pattern('^[A-Za-z]{2,15}$')
+      ]),
+    });
+  }
+
+  get subscriptionNumber() {
+    return this.userForm.get('subscriptionNumber');
+  }
+
+  get firstName() {
+    return this.userForm.get('firstName');
+  }
+
+  get lastName() {
+    return this.userForm.get('lastName');
+  }
+
+  register(data) {
+    // after alert is removed location.reload() is set in function removeAlert() in alert.component.ts
+    this.userService.register(data).subscribe(() => {
+      this.alertService.success(`User ${data.firstName} ${data.lastName} registered successfully!`);
+      },
+      error => {
+        this.alertService.error(error);
       }
     );
-  }
-
-  ngOnDestroy(): void {
-    this.subscription$.unsubscribe();
-  }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.users.filter = filterValue.trim().toLowerCase();
-  }
-
-  delete(id: number) {
-    this.userService.delete(id).subscribe();
-    window.location.reload();
   }
 }

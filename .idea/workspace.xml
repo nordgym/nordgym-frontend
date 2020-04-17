@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06dbc0b4-0085-4026-8975-b6c1c6f21840" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/management/order-management/order-management.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/management/order-management/order-management.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/management/order-management/order-management.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/management/order-management/order-management.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/management/order-management/order-management.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/management/order-management/order-management.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/model/product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/model/product.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/service/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/service/product.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/memberships/memberships.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/memberships/memberships.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/memberships/memberships.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/memberships/memberships.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/orders.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/orders.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/orders.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/orders/orders.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +46,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/nordgym-frontend/src/app/module" />
+      <recent name="$PROJECT_DIR$/nordgym-frontend/src/app/alert" />
+      <recent name="$PROJECT_DIR$/nordgym-frontend/src/app/users" />
+      <recent name="$PROJECT_DIR$/nordgym-frontend/src/app/products" />
+      <recent name="$PROJECT_DIR$/nordgym-frontend/src/app/orders" />
+      <recent name="$PROJECT_DIR$/nordgym-frontend/src/app/memberships" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -55,13 +58,15 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dcd663a2-2634-4faa-91a9-e4e523c48bb7" name="Default Changelist" comment="" />
+      <changelist id="06dbc0b4-0085-4026-8975-b6c1c6f21840" name="Default Changelist" comment="" />
       <created>1585725889791</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1585725889791</updated>
       <workItem from="1585725891481" duration="11510000" />
       <workItem from="1585752203933" duration="1581000" />
+      <workItem from="1586979456050" duration="612000" />
+      <workItem from="1587113937733" duration="6692000" />
     </task>
     <servers />
   </component>
@@ -73,10 +78,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1585750881286" />
-    <state x="144" y="96" key="DiffContextDialog" timestamp="1586973495264">
+    <state x="144" y="96" key="DiffContextDialog" timestamp="1586975279534">
       <screen x="0" y="23" width="1440" height="836" />
     </state>
-    <state x="144" y="96" key="DiffContextDialog/0.23.1440.836@0.23.1440.836" timestamp="1586973495264" />
+    <state x="144" y="96" key="DiffContextDialog/0.23.1440.836@0.23.1440.836" timestamp="1586975279534" />
     <state x="144" y="98" key="MergeDialog" timestamp="1586973594761">
       <screen x="0" y="23" width="1440" height="836" />
     </state>
@@ -87,10 +92,10 @@
     </state>
     <state x="551" y="248" key="MultipleFileMergeDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1585731863563" />
     <state x="472" y="220" key="MultipleFileMergeDialog/0.23.1440.836@0.23.1440.836" timestamp="1586973597965" />
-    <state x="395" y="170" key="RollbackChangesDialog" timestamp="1586973497000">
+    <state x="395" y="170" key="RollbackChangesDialog" timestamp="1586985312723">
       <screen x="0" y="23" width="1440" height="836" />
     </state>
-    <state x="395" y="170" key="RollbackChangesDialog/0.23.1440.836@0.23.1440.836" timestamp="1586973497000" />
+    <state x="395" y="170" key="RollbackChangesDialog/0.23.1440.836@0.23.1440.836" timestamp="1586985312723" />
     <state x="505" y="248" key="run.anything.popup" timestamp="1585730148877">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>

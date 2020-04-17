@@ -1,3 +1,33 @@
-table {
+mat-grid-list {
+  margin: 2em 1em 0 1em;
+}
+mat-grid-tile:first-child {
+ border: 3px solid #3f51b5;
+}
+mat-grid-tile:last-child {
+  border: 3px solid deepskyblue;
+}
+.membership-list {
+  border: 3px solid red;
   width: 100%;
+
+}
+.membership-list app-memberships {
+  width: 100%;
+}
+form{
+  border: 3px solid red;
+  width: 80%;
+  text-align: left;
+}
+mat-form-field {
+  width: 100%;
+}
+.float-left {
+  float: left;
+  margin-right: 0.5rem;
+}
+
+.float-right {
+  float: right;
 }

@@ -1,0 +1,38 @@
+.order-management-container {
+  margin-top: 2em;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-grid-tile {
+  border: red solid 3px;
+}
+
+/* order table */
+.pre-order-table {
+  height: 25.5em;
+  overflow: auto;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+tr.mat-footer-row {
+  font-weight: bold;
+}
+
+.open-order {
+  width: 75%;
+  margin: 5rem auto 0 auto;
+}
+.open-order mat-panel-description {
+  width: 50%;
+}
+.count {
+  width: 3em;
+}
