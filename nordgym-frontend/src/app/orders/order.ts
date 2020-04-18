@@ -8,7 +8,7 @@ export class Order {
   dateTime: Date;
   isOpen = true;
   products: Product[] = [];
-  memberships: Membership[] = [];
+  memberships: Membership[];
 
   constructor() {
   }

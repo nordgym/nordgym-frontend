@@ -1,0 +1,39 @@
+<mat-accordion *ngIf="memberships && user$ | async as user">
+  <mat-expansion-panel *ngFor="let membership of memberships"
+                       (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{membership.name}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-form-field>
+      <mat-label>Start Date</mat-label>
+      <input matInput
+             *ngIf="!membership.startDate"
+             [matDatepicker]="pickerStartDate"
+             [(ngModel)]="membership.startDate"
+             (focus)="pickerStartDate.open()" readonly>
+      <input matInput
+             *ngIf="membership.startDate"
+             [(ngModel)]="membership.startDate">
+    </mat-form-field>
+    <mat-datepicker #pickerStartDate></mat-datepicker>
+    <mat-form-field>
+      <mat-label>End Date</mat-label>
+      <input matInput
+             *ngIf="!membership.endDate"
+             [matDatepicker]="pickerEndDate"
+             [(ngModel)]="membership.endDate"
+             (focus)="pickerEndDate.open()" readonly>
+      <input matInput
+             *ngIf="membership.endDate"
+             [(ngModel)]="membership.endDate">
+    </mat-form-field>
+    <mat-datepicker #pickerEndDate></mat-datepicker>
+    <mat-action-row>
+      <button mat-button color="primary" (click)="activate(membership)" [disabled]="membership.isActive">Activate
+      </button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>

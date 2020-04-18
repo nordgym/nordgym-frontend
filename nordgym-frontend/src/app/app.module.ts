@@ -20,6 +20,7 @@ import { MembershipsComponent } from './memberships/memberships.component';
 import { MembershipListComponent } from './memberships/membership-list/membership-list.component';
 import {MaterialUiModule} from './material-ui/material-ui.module';
 import { UserProfileComponent } from './users/user-profile/user-profile.component';
+import { MembershipActiveComponent } from './memberships/membership-active/membership-active.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { UserProfileComponent } from './users/user-profile/user-profile.componen
     MembershipsComponent,
     MembershipListComponent,
     UserProfileComponent,
+    MembershipActiveComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,7 @@ import { UserProfileComponent } from './users/user-profile/user-profile.componen
     FormsModule,
     ReactiveFormsModule,
     AlertModule,
-    MaterialUiModule,
+    MaterialUiModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }

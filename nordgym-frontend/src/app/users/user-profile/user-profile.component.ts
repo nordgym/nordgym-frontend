@@ -1,15 +1,13 @@
 import {Component, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {map} from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
 import {User} from '../user';
 import {UserService} from '../user.service';
-import {Observable, Subscription} from 'rxjs';
+import {Observable} from 'rxjs';
 import {Order} from '../../orders/order';
 import {OrderService} from '../../orders/order.service';
-import {MatTableDataSource} from '@angular/material/table';
-import {Membership} from '../../memberships/membership';
-import {MatSort} from '@angular/material/sort';
 import {MembershipService} from '../../memberships/membership.service';
+import {Membership} from '../../memberships/membership';
 
 @Component({
   selector: 'app-user-profile',
@@ -17,12 +15,9 @@ import {MembershipService} from '../../memberships/membership.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit, OnDestroy {
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
-  @Output() sortMemberships = this.sort;
-  memberships: MatTableDataSource<Membership>;
-  subscription$: Subscription;
   user$: Observable<User>;
   orders$: Observable<Order[]>;
+  @Output() memberships: Membership[];
 
   constructor(
     private userService: UserService,
@@ -32,21 +27,16 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscription$ = this.membershipService.getAll().subscribe(data => {
-        this.memberships = new MatTableDataSource(data);
-        this.memberships.sort = this.sort;
-      }
-    );
     this.route.paramMap.subscribe(params => {
       const id = +params.get('id');
       this.user$ = this.userService.getById(id);
       this.orders$ = this.orderService.getAllByUserId(id).pipe(
-        map(data => this.makeOpenOrdersOnTop(data)));
+        map(data => this.makeOpenOrdersOnTop(data)),
+        tap(data => this.memberships = this.getUserMembershipsFromOrders(data)));
     });
   }
 
   ngOnDestroy(): void {
-    this.subscription$.unsubscribe();
   }
 
   makeOpenOrdersOnTop(orders: Order[]): Order[] {
@@ -56,5 +46,16 @@ export class UserProfileComponent implements OnInit, OnDestroy {
       order.isOpen ? openOrders.push(order) : completeOrders.push(order);
     });
     return openOrders.concat(completeOrders);
+  }
+
+  getUserMembershipsFromOrders(orders: Order[]): Membership[] {
+    let memberships: Membership[] = [];
+    orders.forEach(order => {
+      memberships = memberships.concat(order.memberships);
+    });
+    return memberships;
+  }
+
+  formatMembershipsStartEndEndDate(memberships: Membership[]) {
   }
 }

@@ -23,4 +23,8 @@ export class MembershipService {
   delete(id: number) {
     return this.http.delete(this.baseUrl + '/delete/' + id);
   }
+
+  activate(membership: Membership) {
+    return this.http.patch(this.baseUrl + '/activate', membership);
+  }
 }

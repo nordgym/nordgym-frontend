@@ -16,6 +16,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 const modules = [
   AppRoutingModule,
@@ -35,7 +37,9 @@ const modules = [
   MatAutocompleteModule,
   MatExpansionModule,
   MatTabsModule,
-  MatCardModule
+  MatCardModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 ];
 
 @NgModule({

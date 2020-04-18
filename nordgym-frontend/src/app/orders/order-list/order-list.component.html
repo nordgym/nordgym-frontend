@@ -27,5 +27,6 @@
       </button>
     </mat-expansion-panel-header>
     <p *ngFor="let product of order.products">{{product.name}}</p>
+    <p *ngFor="let membership of order.memberships">{{membership.name}}</p>
   </mat-expansion-panel>
 </mat-accordion>

@@ -5,7 +5,7 @@ import {OrderService} from '../order.service';
 import {delay, map} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-orders',
+  selector: 'app-order-list',
   templateUrl: './order-list.component.html',
   styleUrls: ['./order-list.component.css']
 })

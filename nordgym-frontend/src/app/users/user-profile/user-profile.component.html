@@ -3,19 +3,19 @@
     [colspan]="1"
     [rowspan]="4">
     <form *ngIf="user$ | async as user">
-      <mat-form-field >
+      <mat-form-field>
         <mat-label>Subscription Number</mat-label>
         <input matInput [(ngModel)]="user.subscriptionNumber" name="subscriptionNumber">
       </mat-form-field>
-      <mat-form-field >
+      <mat-form-field>
         <mat-label>First Name</mat-label>
         <input matInput [(ngModel)]="user.firstName" name="firstName">
       </mat-form-field>
-      <mat-form-field >
+      <mat-form-field>
         <mat-label>Last Name</mat-label>
         <input matInput [(ngModel)]="user.lastName" name="lastName">
       </mat-form-field>
-      <mat-form-field >
+      <mat-form-field>
         <mat-label>Email</mat-label>
         <input matInput [(ngModel)]="user.email" name="email">
       </mat-form-field>
@@ -27,12 +27,15 @@
     <mat-tab-group dynamicHeight>
       <mat-tab label="Memberships">
         <div class="user-memberships">
+          <app-membership-active [user$]="user$"
+                                 [memberships]="memberships">
 
+          </app-membership-active>
         </div>
       </mat-tab>
       <mat-tab label="Orders">
         <div class="user-orders">
-          <app-orders [orders$]="orders$" ></app-orders>
+          <app-order-list [orders$]="orders$"></app-order-list>
         </div>
       </mat-tab>
     </mat-tab-group>

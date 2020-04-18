@@ -5,9 +5,9 @@ export class Membership {
   price: number;
   startDate: Date;
   endDate: Date;
+  isActive = this.startDate !== undefined && this.endDate !== undefined;
   count = 1;
 
   constructor() {
   }
-
 }
