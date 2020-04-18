@@ -3,6 +3,7 @@ import { Product } from '../../model/product';
 import { ProductService } from '../../service/product.service';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class ProductManagementComponent implements OnInit {
   products: MatTableDataSource<Product>;
   tableColumns: string[] = ['id', 'name', 'price', 'edit', 'delete'];
 
-  constructor(private productService: ProductService) { }
+  constructor(  private router: Router,
+                private productService: ProductService) { }
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
@@ -31,9 +33,13 @@ export class ProductManagementComponent implements OnInit {
     this.products.filter = filterValue.trim().toLowerCase();
   }
 
-  deleteProduct(id) {
-    this.productService.delete(id).subscribe(data => {
 
+  deleteProduct(productId: string) {
+
+    this.productService.delete(productId)
+      .subscribe();
+    this.products.data = this.products.data.filter((value, key) => {
+      return value.id !== +productId;
     });
   }
 }

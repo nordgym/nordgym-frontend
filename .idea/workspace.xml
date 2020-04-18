@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dcd663a2-2634-4faa-91a9-e4e523c48bb7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/management/product-management/product-management.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/management/product-management/product-management.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/management/product-management/product-management.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/management/product-management/product-management.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/service/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/service/product.service.ts" afterDir="false" />
@@ -79,6 +78,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="551" y="248" key="MultipleFileMergeDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1585731863563" />
+    <state x="594" y="243" key="RollbackChangesDialog" timestamp="1587211217573">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="594" y="243" key="RollbackChangesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1587211217573" />
     <state x="505" y="248" key="run.anything.popup" timestamp="1585730148877">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
