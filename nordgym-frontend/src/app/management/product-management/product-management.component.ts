@@ -33,9 +33,12 @@ export class ProductManagementComponent implements OnInit {
     this.products.filter = filterValue.trim().toLowerCase();
   }
 
+  openProductToEdit(articleId: string) {
+    this.router.navigate(['new-product']);
+  }
+
 
   deleteProduct(productId: string) {
-
     this.productService.delete(productId)
       .subscribe();
     this.products.data = this.products.data.filter((value, key) => {
