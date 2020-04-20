@@ -44,7 +44,8 @@
       <ng-container matColumnDef="edit">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let product">
-          <button mat-raised-button color="primary" (click)="openProductToEdit(product.id)">Edit</button>
+<!--          <button mat-raised-button color="primary" (click)="openProductToEdit(product.id)">Edit</button>-->
+          <button mat-raised-button color="primary" a routerLink="/edit-product/{{product.id}}">Edit</button>
         </mat-cell>
       </ng-container>
 

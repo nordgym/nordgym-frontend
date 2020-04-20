@@ -10,12 +10,14 @@ import {catchError, map, tap} from 'rxjs/operators';
 export class ProductService {
   productsUrl: string;
   productById: string;
+  productUpdate: string;
   saveUrl: string;
   deleteUrl: string;
 
   constructor(private http: HttpClient) {
     this.productsUrl = 'http://localhost:8080/product/all';
-    this.productById = 'http://localhost:8080/'
+    this.productById = 'http://localhost:8080/product/';
+    this.productUpdate = 'http://localhost:8080/product/update/';
     this.saveUrl = 'http://localhost:8080/product/save';
     this.deleteUrl = 'http://localhost:8080/product/delete/';
   }
@@ -26,7 +28,8 @@ export class ProductService {
 
   getProductById(productId: string): Observable<Product> {
     return this.http.get<Product>(this.productById + productId).pipe(
-      tap(p => console.log(p.id + ' ' + p.name + ' ' + p.price)));
+      tap(p => console.log('Product ID: ' + p.id + ' ; Product Name: ' + p.name + ' ; Product price: ' + p.price)),
+      catchError(this.handleError));
   }
 
   save(product: Product) {
@@ -35,10 +38,11 @@ export class ProductService {
 
   updateProduct(product: Product): Observable<number> {
     let httpHeaders: HttpHeaders;
+    const productId = product.id;
     httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.put<Product>(this.productById + product.id, product, {
+    return this.http.put<Product>(this.productUpdate + productId, product, {
         headers: httpHeaders,
         observe: 'response'
       }

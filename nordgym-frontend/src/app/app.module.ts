@@ -13,10 +13,11 @@ import { IndexComponent } from './index/index.component';
 import { UserManagementComponent } from './management/user-management/user-management.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductManagementComponent } from './management/product-management/product-management.component';
-import { NewProductFormComponent } from './new-product-form/new-product-form.component';
+import { NewProductFormComponent } from './management/product-management/new-product-form/new-product-form.component';
 import { UserAllComponent } from './user-all/user-all.component';
 import {AlertModule} from './module/alert.module';
 import {MaterialUiModule} from './module/material-ui.module';
+import { EditProductFormComponent } from './management/product-management/edit-product-form/edit-product-form.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {MaterialUiModule} from './module/material-ui.module';
     ProductManagementComponent,
     NewProductFormComponent,
     UserAllComponent,
+    EditProductFormComponent,
   ],
   imports: [
     BrowserModule,

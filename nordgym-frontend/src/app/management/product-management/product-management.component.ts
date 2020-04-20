@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Product } from '../../model/product';
-import { ProductService } from '../../service/product.service';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {Product} from '../../model/product';
+import {ProductService} from '../../service/product.service';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 import {Router} from '@angular/router';
 
 
@@ -16,10 +16,11 @@ export class ProductManagementComponent implements OnInit {
   products: MatTableDataSource<Product>;
   tableColumns: string[] = ['id', 'name', 'price', 'edit', 'delete'];
 
-  constructor(  private router: Router,
-                private productService: ProductService) { }
+  constructor(private router: Router,
+              private productService: ProductService) {
+  }
 
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   ngOnInit(): void {
     this.productService.getAll().subscribe((data) => {
@@ -33,8 +34,8 @@ export class ProductManagementComponent implements OnInit {
     this.products.filter = filterValue.trim().toLowerCase();
   }
 
-  openProductToEdit(articleId: string) {
-    this.router.navigate(['new-product']);
+  openProductToEdit(id: number) {
+    this.router.navigate(['edit-product/{{product.id}}']);
   }
 
 
