@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dcd663a2-2634-4faa-91a9-e4e523c48bb7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/management/product-management/product-management.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/management/product-management/product-management.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/management/product-management/product-management.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/management/product-management/product-management.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/new-product-form/new-product-form.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/management/product-management/new-product-form/new-product-form.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/new-product-form/new-product-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/management/product-management/new-product-form/new-product-form.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/new-product-form/new-product-form.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/management/product-management/new-product-form/new-product-form.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/new-product-form/new-product-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/management/product-management/new-product-form/new-product-form.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nordgym-frontend/src/app/service/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nordgym-frontend/src/app/service/product.service.ts" afterDir="false" />
-    </list>
+    <list default="true" id="dcd663a2-2634-4faa-91a9-e4e523c48bb7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
